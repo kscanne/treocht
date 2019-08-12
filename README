@@ -1,0 +1,8 @@
+Cód a dhéanann anailís ar threochtaí téarmaíochta i nGaeilge.
+Féach https://cadhan.com/treochtai/
+
+Cothabháil: 
+(1) Ar an chéad lá den mhí, deimhnigh go bhfuil ga-stamps.txt cothrom le dáta
+sa gcomhadlann ~/gaeilge/crubadan/twitter/times
+(2) make distclean (slán sábháilte)
+(3) make all (~2 uair an chloig)
