@@ -2,6 +2,7 @@
 #  this ran in 30 minutes 2018-09-23
 
 HERE=${HOME}/gaeilge/treocht
+mkdir -p ${HERE}/aschur ${HERE}/corpas ${HERE}/freq ${HERE}/glan
 cd ${HOME}/seal/irishcompleted/kildarestreet
 
 # 2004-02 go 2017-12
