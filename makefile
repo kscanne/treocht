@@ -8,14 +8,16 @@ all:
 
 clean:
 	rm -f aschur/*
-	rm -f seenonline.txt nos-*.txt tuairisc-*.txt full-hapax.txt
+	rm -f seenonline.txt nos-*.txt tuairisc-*.txt full-hapax.txt table.hash
 
 distclean:
 	make clean
-	rm -f corpas/20??-??
-	rm -f glan/20??-??
+	rm -Rf aschur corpas freq glan
 	rm -f freq.txt counts.txt
 
+######################################################################
+#  Can ignore everything below; once off project for Nós/Tuairisc    #
+######################################################################
 # for Maitiú's request, words appearing in Nós or Tuairisc for first time
 # online; use this file to filter out English and stuff from Gaeilge-A
 seenonline.txt:
