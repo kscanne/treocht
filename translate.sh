@@ -6,4 +6,7 @@ s/"Seol"/"Submit"/
 s/Treochtaí/Trends/
 s/Léarscáil/Map/
 s/líon sa milliún focal/frequency per million words/
+s/Léarscáileanna/Maps/
+s/Roinnt de na samplaí is spéisiúla!/Some of the most interesting examples!/
+s/Nó, caith súil ar shamplaí spéisiúla sa <a href="samplai.html">nGailearaí<\/a>/Or, check out some interesting examples in the <a href="samplai-en.html">Gallery<\/a>/
 '

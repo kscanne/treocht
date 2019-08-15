@@ -5,15 +5,18 @@ all:
 	find glan -name '????-??' | sort | while read x; do echo `echo $$x | sed 's/^glan.//'` `cat $$x | bash ${HOME}/seal/caighdean/alltokens.sh | egrep "^[#A-Za-z'-]+$$" | wc -l`; done > counts.txt
 	bash freq.sh
 	perl hashem.pl
-	make index-en.html
+	make index-en.html samplai-en.html
 
 index-en.html: index.html translate.sh
 	cat index.html | bash translate.sh > $@
 
+samplai-en.html: samplai.html translate.sh
+	cat samplai.html | bash translate.sh > $@
+
 clean:
 	rm -f aschur/*
 	rm -f seenonline.txt nos-*.txt tuairisc-*.txt full-hapax.txt table.hash
-	rm -f index-en.html
+	rm -f index-en.html samplai-en.html
 
 distclean:
 	make clean
