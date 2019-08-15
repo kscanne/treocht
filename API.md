@@ -53,7 +53,7 @@ is the string above, you should get a response resembling this:
 
 ```json
 [
-  {"Dáta", "gorm", "dearg", "uaine"],
+  ["Dáta", "gorm", "dearg", "uaine"],
   ["2015-01", 43.53, 91.65, 2.29],
   ["2015-02", 147.22, 119.77, 0],
   ["2015-03", 49.17, 110.15, 49.17],
