@@ -64,7 +64,7 @@ is the string above, you should get a response resembling this:
 Trends API: Details
 -------
 
-* Frequency counts treat mutated forms as the same word. Thus, a search for “bean” will count all occurrences of “bean”, “bhean”, or “mbean”. Therefore you should be careful with results for words like “fuil” (which will include the very common “bhfuil”, or “te” (which includes the English “the” which occurs non-trivially in Irish texts online (in quotes, translations, etc.)
+* Frequency counts treat mutated forms as the same word. Thus, a search for “bean” will count all occurrences of “bean”, “bhean”, or “mbean”. Therefore you should be careful with results for words like “fuil” (which will include the very common “bhfuil”), or “te” (which includes the English “the” which occurs non-trivially in Irish texts online (in quotes, translations, etc.))
 * The word counts ignore upper vs. lowercase.
 * We only store data for the most frequent 50,000 Irish words appearing online since 2015. For perspective, words just outside the top 50,000 appear on average only between 2 and 3 times per year; many of them are misspellings. The API will return a time series of all zeroes for all such words.  
 
@@ -122,8 +122,7 @@ JSON should look like this:
 Atlas API: Details
 -------
 * The API only returns latitudes and longitudes in Ireland.
-* The first word is always assigned the color “gorm”; additional words are
-* assigned “dearg”, “uaine”, “oráiste”, and “corcra”, in that order.
+* The first word is always assigned the color “gorm”; additional words are assigned “dearg”, “uaine”, “oráiste”, and “corcra”, in that order.
 * The database is restricted to the same list of 50,000 words as the Trends API. No latitude/longitude pairs will be returned for any words outside the top 50,000.
 
 
@@ -131,7 +130,7 @@ HTTP Response Codes
 -------------------
 
 * 200 (OK): Successful request
-* 400 (Bad Request): Missing parameter in request, empty parameter string, malformed parameter string, source text not encoded as UTF-8, etc.
+* 400 (Bad Request): Missing parameter in request, empty parameter string, malformed parameter string, more than five words in parameter, source text not encoded as UTF-8, etc.
 * 403 (Forbidden): Request from unapproved IP address
 * 405 (Method Not Allowed): Only POST requests permitted
 * 413 (Payload Too Large): Request larger than 1k bytes
