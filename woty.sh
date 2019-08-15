@@ -11,5 +11,8 @@ tofreq() {
 }
 
 find glan -name "${1}-??" | xargs cat | tofreq > "${1}-freq.txt" 
+# note that if we run this for, say, 2017 in 2019, it will include
+# 2018 and 2019 in the "prefreq" data!  So looking for spikes versus
+# emergent words
 find glan -name "????-??" | sort | sed "/${1}/,\$d" | xargs cat | tofreq > "${1}-prefreq.txt"
 echo "0 xx" | bayes.pl -d "${1}-freq.txt" "${1}-prefreq.txt" > "${1}-innovations.txt"
