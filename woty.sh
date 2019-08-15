@@ -15,4 +15,6 @@ find glan -name "${1}-??" | xargs cat | tofreq > "${1}-freq.txt"
 # 2018 and 2019 in the "prefreq" data!  So looking for spikes versus
 # emergent words
 find glan -name "????-??" | sort | sed "/${1}/,\$d" | xargs cat | tofreq > "${1}-prefreq.txt"
+# can also remove low freq words from 20xx-freq.txt and rerun bayes.pl
+# to get better candidates; also worth filtering out capitals?
 echo "0 xx" | bayes.pl -d "${1}-freq.txt" "${1}-prefreq.txt" > "${1}-innovations.txt"
