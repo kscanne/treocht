@@ -86,6 +86,9 @@
     }
     arr.shift(); // remove header row
     data.addRows(arr);
+    // DateFormat doesn't take locale code AFAICT
+    var date_formatter = new google.visualization.DateFormat({pattern: "y-MM"});
+    date_formatter.format(data, 0);
     var options = {
             width: 800,
             height: 500,
