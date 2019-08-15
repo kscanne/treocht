@@ -1,0 +1,9 @@
+#!/bin/bash
+sed '
+s/Cuir focal amháin sa chéad bhosca. Cliceáil an plus chun tuilleadh focal a chur i gcomparáid le chéile (suas le cúig cinn), agus an cnaipe "Seol" nuair a bheidh tú réidh./Enter a word in the box. Click the plus sign to compare additional words (up to five), and click "Submit" when you are ready./
+s/Cuir focal amháin i ngach bosca/One word per box/
+s/"Seol"/"Submit"/
+s/Treochtaí/Trends/
+s/Léarscáil/Map/
+s/líon sa milliún focal/frequency per million words/
+'
