@@ -3,7 +3,7 @@
   <div class="uicol">
     <form id="mainform">
       <div id="searchterms">
-        <div><input type="text" name="mytext[]" pattern="[A-ZÁÉÍÓÚa-záéíóú-]{1,30}" title="Cuir focal amháin i ngach bosca" id="firstinput" required /></div>
+        <div><input type="text" name="mytext[]" pattern="[#0-9A-ZÁÉÍÓÚa-záéíóú-]{1,30}" title="Cuir focal amháin i ngach bosca" id="firstinput" required /></div>
       </div>
       <input type="button" class="addbutton" onclick="addInput();"/>
       <input type="submit" value="Seol" id="submitbutton"></input>
@@ -148,7 +148,7 @@ function removeElement(elementId) {
 }
 function addInput() {
   if (total < 5) {
-    var htmlstr = '<input type="text" name="mytext[]" id="input-' + inputId + '" pattern="[A-ZÁÉÍÓÚa-záéíóú-]{1,30}" title="Cuir focal amháin i ngach bosca" required /> ' + '<a href="" onclick="javascript:removeElement(\'file-'+inputId+'\'); return false;"><img class="scrios" src="pic/scrios.png" width="28" height="28"/></a>';
+    var htmlstr = '<input type="text" name="mytext[]" id="input-' + inputId + '" pattern="[#0-9A-ZÁÉÍÓÚa-záéíóú-]{1,30}" title="Cuir focal amháin i ngach bosca" required /> ' + '<a href="" onclick="javascript:removeElement(\'file-'+inputId+'\'); return false;"><img class="scrios" src="pic/scrios.png" width="28" height="28"/></a>';
     addElement('searchterms', 'div', 'file-'+inputId, htmlstr);
     const newInput = document.getElementById('input-'+inputId);
     newInput.focus();
