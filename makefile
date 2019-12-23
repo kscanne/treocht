@@ -4,6 +4,7 @@ all:
 	bash glan.sh
 	find glan -name '????-??' | sort | while read x; do echo `echo $$x | sed 's/^glan.//'` `cat $$x | bash ${HOME}/seal/caighdean/alltokens.sh | egrep "^[#A-Za-z'-]+$$" | wc -l`; done > counts.txt
 	bash freq.sh
+	rm -f table.hash
 	perl hashem.pl
 	make index-en.html samplai-en.html
 
@@ -13,9 +14,13 @@ index-en.html: index.html translate.sh
 samplai-en.html: samplai.html translate.sh
 	cat samplai.html | bash translate.sh > $@
 
+# don't kill table.hash since this gets sync'd over to cadhan.com
+# periodically and is needed by the treochtai website;
+# groomm process takes a couple of hours and will just overwrite
+# this when it gets to the "make all" above
 clean:
 	rm -f aschur/*
-	rm -f seenonline.txt nos-*.txt tuairisc-*.txt full-hapax.txt table.hash
+	rm -f seenonline.txt nos-*.txt tuairisc-*.txt full-hapax.txt
 	rm -f index-en.html samplai-en.html
 
 distclean:
