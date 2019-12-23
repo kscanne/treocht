@@ -3,7 +3,7 @@
 # filter; pipe in plain text
 # compare ~/gaeilge/canuinti/buildtable.sh
 makefreq() {
-	bash ${HOME}/seal/caighdean/alltokens.sh | egrep "^([A-Za-z'-]+|#[A-Za-z0-9]+)$" | demut | sed "s/^''*//; s/'*'$//" | egrep -v "'" | tolow | egrep "[a-záéíóú]" | sort | uniq -c | sort -r -n | sed 's/^ *//'
+	bash ${HOME}/seal/caighdean/alltokens.sh | egrep "^([A-Za-z'-]+|#[A-Za-z0-9]+)$" | sed "s/^''*//; s/'*'$//" | demut | egrep -v "'" | tolow | egrep "[a-záéíóú]" | sort | uniq -c | sort -r -n | sed 's/^ *//'
 }
 
 find glan/ -name '????-??' | sort |
