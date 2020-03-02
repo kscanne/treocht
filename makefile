@@ -7,6 +7,11 @@ all:
 	rm -f table.hash
 	perl hashem.pl
 	make index-en.html samplai-en.html
+	make new-unknown.txt
+
+new-unknown.txt:
+	cat glan/`date --date="$$(date +%Y-%m-15) -1 month" +'%Y-%m'` | bash ${HOME}/seal/caighdean/tiomanai.sh -u | egrep '[A-Za-zÁÉÍÓÚáéíóú]' | egrep '..' | egrep -v '[@#]' | egrep -v '://' | sort | uniq -c | sort -r -n | sed 's/^ *//' > $@
+	cp $@ ${HOME}
 
 index-en.html: index.html translate.sh
 	cat index.html | bash translate.sh > $@
@@ -21,7 +26,7 @@ samplai-en.html: samplai.html translate.sh
 clean:
 	rm -f aschur/*
 	rm -f seenonline.txt nos-*.txt tuairisc-*.txt full-hapax.txt
-	rm -f index-en.html samplai-en.html
+	rm -f index-en.html samplai-en.html new-unknown.txt
 
 distclean:
 	make clean
