@@ -5,40 +5,13 @@ HERE=${HOME}/gaeilge/treocht
 mkdir -p ${HERE}/aschur ${HERE}/corpas ${HERE}/freq ${HERE}/glan
 cd ${HOME}/seal/irishcompleted/kildarestreet
 
-# 2004-02 go 2017-12
-echo "Adding Dáil debates..."
-find debates/ -name '*.html' | sed 's/^debates\///' | egrep -o '^[0-9]{4}-[0-9][0-9]' | sort -u |
-while read x
-do
-	find debates/ -name "$x*.html" |
-	while read y
-	do
-		cat $y | bash preproc.sh
-	done | perl proc.pl | egrep -v '^ainm =' >> ${HERE}/corpas/$x
-done
-
 # 2004-01 go 2017-12
-echo "Adding Seanad debates..."
-find sendebates/ -name '*.html' | sed 's/^sendebates\///' | egrep -o '^[0-9]{4}-[0-9][0-9]' | sort -u |
+echo "Adding Kildare Street stuff..."
+find gaois -type f |
 while read x
 do
-	find sendebates/ -name "$x*.html" |
-	while read y
-	do
-		cat $y | bash preproc.sh
-	done | perl proc.pl | egrep -v '^ainm =' >> ${HERE}/corpas/$x
-done
-
-# 2012-09 go 2017-12
-echo "Adding committee debates..."
-find committees/ -name '*.html' | sed 's/^committees\///' | egrep -o '^[0-9]{4}-[0-9][0-9]' | sort -u |
-while read x
-do
-	find committees/ -name "$x*.html" |
-	while read y
-	do
-		cat $y | bash preproc.sh
-	done | perl proc.pl | egrep -v '^ainm =' >> ${HERE}/corpas/$x
+	THEDATE=`echo "${x}" | egrep -o '.{7}$'`
+	cat "${x}" | egrep -v '^ainm =' >> ${HERE}/corpas/${THEDATE}
 done
 
 # 2014-10 ... lá atá inniu ann
