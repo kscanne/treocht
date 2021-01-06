@@ -10,7 +10,8 @@ tofreq() {
 	bash ${HOME}/seal/caighdean/alltokens.sh | sed "s/^'*//" | sed "s/'*$//" | egrep "^[A-Za-z'-]+$" | demut | sort | uniq -c | sort -r -n | sed 's/^ *//'
 }
 
-find glan -name "${1}-??" | xargs cat | tofreq > "${1}-freq.txt" 
+# note kills everything with freq < 10...
+find glan -name "${1}-??" | xargs cat | tofreq | egrep -v '^[0-9] ' > "${1}-freq.txt" 
 # note that if we run this for, say, 2017 in 2019, it will now
 # correctly only include through 2016 in the "prefreq" data!
 find glan -name "????-??" | sort | sed "/${1}/,\$d" | xargs cat | tofreq > "${1}-prefreq.txt"
