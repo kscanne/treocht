@@ -11,7 +11,7 @@ all:
 
 new-unknown.txt:
 	cat glan/`date --date="$$(date +%Y-%m-15) -1 month" +'%Y-%m'` | bash ${HOME}/seal/caighdean/tiomanai.sh -u | egrep '[A-Za-zÁÉÍÓÚáéíóú]' | egrep '..' | egrep -v '[@#]' | egrep -v '://' | sort | uniq -c | sort -r -n | sed 's/^ *//' > $@
-	cp $@ ${HOME}
+	mv $@ ${HOME}
 
 index-en.html: index.html translate.sh
 	cat index.html | bash translate.sh > $@
